@@ -1,0 +1,8 @@
+2024-02-01 20:38:43,849 : INFO : BaseClassLog : ['Chandani', 'Kothari', 'chandani.jain@gmail.com']
+2024-02-01 20:38:43,849 : WARNING : BaseClassLog : Kothari
+2024-02-01 20:42:59,180 : INFO : test_logging : This is Info
+2024-02-01 20:42:59,181 : WARNING : test_logging : This is Warning
+2024-02-01 20:42:59,181 : ERROR : test_logging : This is Error
+2024-02-01 20:42:59,181 : CRITICAL : test_logging : This is critical
+2024-02-01 20:42:59,183 : INFO : BaseClassLog : ['Chandani', 'Kothari', 'chandani.jain@gmail.com']
+2024-02-01 20:42:59,183 : WARNING : BaseClassLog : Kothari

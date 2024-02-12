@@ -1,0 +1,35 @@
+should have java installed
+download jenkins from their site
+in cmd, go to the path where the downloaded file is and do command: java -jar jenkins.war httpPort=9090
+#if jenkins is installed for the first time, it will ask to do the setup of creating the account with username and password **
+
+** Creating Project
+after setup goto localhost:9090
+log into your jenkins
+click New Item - Enter Name - Select Freestyle Project - OK
+click Advanced - select 'Use custom Workspace' - give the Directory to your project (eg. C:\Users\chand\OneDrive\Desktop\Python Course\Python Sel\PythonSeleniumFramework)
+click 'Add build step' - select 'Execute Windows batch command'
+Put here a series of commands that need to be done (eg. cd test, pytest --browsername chrome --htmlreport=$WORKSPACE/reports/report.html)
+click save
+
+** Adding Paramters
+click Configure on the left menu
+click 'This project is parameterized'
+select choice parameter
+give the name and the paramters (name:BrowserName, parameters:chrome,IE)
+use the parameter in command (pytest --browsername "%BrowserName%" --htmlreport=$WORKSPACE/reports/report.html)
+#this --browsername is a command line parameter and is catched by pytest_addoption in conftest.py
+
+Click on 'Build with Parameters' to run the tests
+
+**generate Junit report
+Pytest has a buit in feature that generates a XML from the run results
+just add this to the cmd -v -junitxml=name.xml (pytest --browsername "%BrowserName%" --url "%URL%" --html=$WORKSPACE/reports/report.html -v --junitxml="result.xml")
+here result.xml will be created in tests folder
+Now, click on add post-build action
+give the xml path (tests/*.xml)
+click save
+
+when you run this build, you wil have a Test result folder showing the pass and fails
+
+
